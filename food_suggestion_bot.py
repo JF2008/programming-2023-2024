@@ -23,13 +23,13 @@ italien_food = ["pizza", "pasta", "cannelon", "tiramisu"]
 jap_food = ["shushi", "miso soup"]
 
 # .Lower() and .Strip() are both string methods I used in this example.
-if fav_food.lower().strip(",.?! ") in italien_food:
+if fav_food.lower().strip(",.?! ") in italien_food:  # Also in this example .lower() and .strip() catches for any possible semantic errors
     print("go to this restaurant:")
     time.sleep(1)
     print("I suggest bella roma iltalian food")
     time.sleep(1)
     print("Go to this address: 123 road")
-elif fav_food.lower().strip(",.?! ") in jap_food:
+elif fav_food.lower().strip(",.?! ") in jap_food: # Also in this example .strip() and .lower() makes the code robust
     print("go to this restaurant:")
     time.sleep(1)
     print("I suggest Gami shushi")
