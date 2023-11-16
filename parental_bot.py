@@ -16,7 +16,9 @@ if q3 == "yes":
 if q4 == "yes":
     score += 1
 
-if score <= 2:
+if score == 0:
+    print("Im coming over")
+elif score <= 2:
     print("Ok.")
 elif score <= 4:
     print("Good!")
