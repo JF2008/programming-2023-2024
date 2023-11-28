@@ -42,7 +42,7 @@ def biggest_of_three(num1, num2, num3):
         biggest = num3
     elif num1 > num3:
         biggest = num1
-    elif num2 > num1:
+    elif num2 > num1: 
         biggest = num2
     return biggest
 
@@ -50,11 +50,22 @@ def pyramid(num):
     for i in range(num):
         print("*" * int(i+1))
 
-def pyramid_mirror(num):
-    stored_pyrimid = []
-    for i in range(num):
-        line = "*" * int(i+1)
-        stored_pyrimid.append(line)
+def pyramid_mirror(num_layers: int) -> None:
+    """Print a pyramid mirrored of given number
+    of layers.
+
+    Params:
+    num_layers - number of layers in the pyramid
+    """
+
+    for current_layer in range(1, num_layers + 1):
+        # Spaces is equal to total num of layers
+        # minus the stars in the current layer
+        spaces = " " * (num_layers - current_layer)
+
+        print(spaces + stars(current_layer))
+
+        
     
 
         
@@ -78,5 +89,5 @@ print("\n")
 print(biggest_of_three(100,43,3))
 print("\n")
 
-pyramid(5)
+pyramid(100)
 pyramid_mirror(4)
