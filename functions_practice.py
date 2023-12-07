@@ -3,6 +3,11 @@
 
 # Function
 
+# Functions Practice
+# Author: Ubial
+# 24 November 2023
+
+
 def print_area_of_a_square(sidelength: float) -> None:
     """Calculates the area of a square.
     Results are in units squared.
@@ -31,24 +36,83 @@ def area_of_a_square(sidelength: float) -> float:
     return area
 
 
+# print_area_of_a_square(12.2)
+# print_area_of_a_square(13)
+# sum_areas = area_of_a_square(12.2) + area_of_a_square(13)
+# print(area_of_a_square(2))
+
+# print(print_area_of_a_square(2))
+
+# Question 1:
+# Create a function called stars()
+# Takes an int as a parameter
+# Returns a string of stars of given length
+
+
+# Aside: Signature of a function
+#     - name of the function
+#     - inputs/parameters / type
+#     - return type
+
+
 def stars(num_stars: int) -> str:
-    """"""
-    stars = "*" * num_stars
-    return stars
+    """Returns a string of stars of given length"""
 
-def biggest_of_three(num1, num2, num3):
-    biggest = 0
-    if num3 > num2:
-        biggest = num3
-    elif num1 > num3:
-        biggest = num1
-    elif num2 > num1: 
-        biggest = num2
-    return biggest
+    return "*" * num_stars
 
-def pyramid(num):
-    for i in range(num):
-        print("*" * int(i+1))
+
+print(stars(5))
+print(stars(100))
+
+# Question 2:
+# Create a function called biggest_of_three()
+# Takes three parameters, all floats
+# Returns the biggest one
+
+
+def biggest_of_three(num_one: float, num_two: float, num_three: float) -> float:
+    """Returns the biggest of three given numbers.
+
+    Params:
+    num_one - the first number
+    num_two - the second number
+    num_three - the third number
+
+    Returns:
+    the biggest of the three numbers
+    """
+    if num_one > num_two and num_one > num_three:
+        return num_one
+    elif num_two > num_three:
+        return num_two
+    else:
+        return num_three
+
+
+print(biggest_of_three(1000, 100, 10))
+print(biggest_of_three(100, 1000, 10))
+print(biggest_of_three(10, 100, 1000))
+
+# Question 3
+# Question 4
+# Create functions called pyramid() and pyramid_mirror()
+# Takes one number as a parameter
+# Give a pyramid either regular way or mirrored
+
+
+def pyramid(num_layers: int) -> None:
+    """Prints out a pyramid of given number of layers.
+
+    Params:
+    num_layers - number of layers in the pyramid
+    """
+
+    for current_layer in range(1, num_layers + 1):
+        print(stars(current_layer))
+
+pyramid(2)
+pyramid(3)
+pyramid(20)
 
 def pyramid_mirror(num_layers: int) -> None:
     """Print a pyramid mirrored of given number
@@ -65,29 +129,38 @@ def pyramid_mirror(num_layers: int) -> None:
 
         print(spaces + stars(current_layer))
 
-        
-    
-
-        
-    
+pyramid_mirror(2)
+pyramid_mirror(3)
+pyramid_mirror(20)
 
 
+def linear_search(l: list, item: any) -> int:
+    """Search through a list and if found,
+    returns the index of the first occurence
+    of the item.
 
+    Params:
+            l - list we're search through
+            item - item we're looking for
 
-print(stars(2))  #   **
-print(stars(10))  #   **********
-print("\n")
+    Returns:
+            index if found, -1 if not found
+    """
+    counter = 0
 
-print_area_of_a_square(12.2)
-print_area_of_a_square(13)
- #sum_areas = area_of_a_square(12.2) + area_of_a_square(13)
-print(area_of_a_square(2))
+    # search algorithm
+    for thing in l:
+        if thing == item:
+            return counter
+        counter += 1
 
-print(print_area_of_a_square(2))
-print("\n")
+    return -1
 
-print(biggest_of_three(100,43,3))
-print("\n")
+pockets = ["coins", "lint", "paperclip", "keys", "wallet"]
 
-pyramid(100)
-pyramid_mirror(4)
+results = linear_search(pockets, "keys")
+
+if results == -1:
+    print("Your keys are not in your pockets")
+else:
+    print(f"Found your keys! They're in the {results}th index.")
